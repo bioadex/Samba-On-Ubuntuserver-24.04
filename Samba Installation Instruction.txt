@@ -1,0 +1,105 @@
+
+
+Installation of Samba on Ubuntu 24.04
+
+Step 1 :
+
+sudo apt update && sudo apt upgrade -y 
+
+Step 2: 
+
+sudo apt install samba -y 
+
+after installation 
+
+check where the location of the Samba 
+
+whereis samba 
+
+check the version of the samba 
+
+samba --version 
+samba -V 
+
+Step 3:
+
+Sudo systemctl status smbd      #   to check the status of smbd 
+
+sudo systemctl restart smbd     #   to restart the smbd 
+
+
+step 4: Make a directory for Samba Share
+
+sudo mkdir -p /srv/samba/share 
+
+ls /home     
+
+step 5: sudo vim /etc/samba/smb.conf       #  to open the samba config 
+        sudo nano /etc/samba/smb.conf      #  to write into samba config
+
+step 6: Go to the page
+
+Look for Line: interfaces = ubuntu server ip 
+
+Go to the Last Page and add the following line
+
+[share]
+path = /srv/samba/share
+read only = no 
+writable = yes
+browseable = yes
+
+Press Ctrl+O
+Enter
+Ctrl+X
+
+to Close the samba config 
+
+Step 7: Restart smbd 
+        sudo systemctl restart smbd 
+
+
+Step 8: Create a Valid user to access the samba 
+
+        sudo useradd [your_user_name]    # create username 
+        sudo smbpasswd -a [your_user_name]     # add a password to the user
+
+Step 9: sudo chmod -R 0775 /srv/samba/share
+
+Step 10 : add Samba to firewalls 
+sudo ufw status
+sudo ufw app list
+sudo ufw allow Samba
+
+Step 11: 
+Step 12: Test the Samba server if its working 
+
+         testparm 
+		 
+		 Look for status: OK 
+
+Step 13:
+If everything is configure and install OKAY 
+         then go to Windows PC 
+		 Open folder and type :  http//:your-ubuntu-server
+		 then Press ENTER 
+		 after that Login Request and Password of the user you add in the samba config 
+		 
+Step 14: You will see the sharing folder you created in the Ubuntu server 
+         Edit/Write to it 
+		 THIS IS FINAL!!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
