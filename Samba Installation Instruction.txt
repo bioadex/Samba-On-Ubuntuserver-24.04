@@ -81,25 +81,10 @@ Step 12: Test the Samba server if its working
 Step 13:
 If everything is configure and install OKAY 
          then go to Windows PC 
-		 Open folder and type :  http//:your-ubuntu-server
+		 Open folder and type :  \\your-ubuntu-server
 		 then Press ENTER 
-		 after that Login Request and Password of the user you add in the samba config 
+		 after that Login Request and Password of the user you add in the samba config # you can disable user and password 
 		 
 Step 14: You will see the sharing folder you created in the Ubuntu server 
          Edit/Write to it 
 		 THIS IS FINAL!!!!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
